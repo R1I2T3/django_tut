@@ -1,10 +1,18 @@
 {% extends "layout.html" %} {% block title %}All chai{% endblock title %}
 {%block body %}
-<h1>All chai</h1>
-<p class="text-md text-white bg-orange-600">
-  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, iusto?
-  Architecto in ipsa labore provident ex quibusdam dolores cupiditate vero non
-  ad, tempora voluptate sapiente officiis modi. Nisi fugit itaque, soluta
-  accusantium iure vitae porro eos ab repellat laboriosam eaque!
-</p>
+<div class="m-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {% for chai in chais %}
+  <div
+    class="shadow-2xl bordered w-[90%] flex justify-center items-center flex-col rounded-xl bg-blue-500 p-5 gap-3"
+  >
+    <img src="{{chai.image.url}}" alt="" class="w-[90%] h-[60%]" />
+    <h1 class="text-white text-xl">{{chai.name}}</h1>
+    <a href="{% url "chai_details" chai.id %}" class="w-[100%]">
+      <button type="button" class="bg-orange-500 p-3 rounded-2xl w-[100%]">
+        {{chai.chai_type}}-{{chai.id}}
+      </button>
+    </a>
+  </div>
+  {% endfor %}
+</div>
 {% endblock body %}

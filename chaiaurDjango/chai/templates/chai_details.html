@@ -1,0 +1,15 @@
+{% extends "layout.html" %} {% block title %}Chai details{% endblock title %}
+{%block body %}
+<div class="flex flex-col gap-3 justify-center items-center p-4">
+  <img
+    src="{{chai.image.url}}"
+    alt=""
+    class="w-[90%] md:w-[60%] lg:w-[40%] rounded-xl"
+  />
+  <h1 class="text-3xl font-bold tracking-tight">Name: {{chai.name}}</h1>
+  <h2 class="text-xl font-semibold">Type:{{chai.chai_type}}</h2>
+  <p class="w-[90%] md:w-[60%] lg:w-[40%] text-justify text-md">
+    {{chai.description}}
+  </p>
+</div>
+{% endblock body %}
